@@ -40,7 +40,7 @@ niveau 6: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
     - [x] git push
     - [x] git clone
     - [x] git remote
-- [/] Faire le parcours Git-it pour les débutants (Nodeschool.io)
+- [x] Faire le parcours Git-it pour les débutants (Nodeschool.io)
 - [x] Faire ses premiers commits sur les daily objectives
 - [x] Faire ses premiers pushs des daily-objectives sur son compte Github
 - [x] Faire ses première manipulations de versionning en CLI only (init, push, add, commit, status, pull)
