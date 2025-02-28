@@ -70,6 +70,11 @@
   def hello():
       print("Hello World!")
   ```
+  ```javascript
+  function hello() {
+    console.log("Hello World")
+  }
+  ```
   ```
   
   - [x] Citations
