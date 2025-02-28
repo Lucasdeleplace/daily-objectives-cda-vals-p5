@@ -70,11 +70,14 @@
   def hello():
       print("Hello World!")
   ```
+<<<<<<< HEAD
   ```javascript
   function hello() {
     console.log("Hello World")
   }
   ```
+=======
+>>>>>>> 9463355 (docs(jour-*):add sitation with explication)
   ```
   
   - [x] Citations

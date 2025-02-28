@@ -3,7 +3,6 @@
 ### Jeudi 27/02/2025 :
 
 - [x] Faire le wargame bandit jusqu'au niveau 5 (anglais)
-<<<<<<< HEAD
 > Réalisation des exercices de sécurité sur OverTheWire pour apprendre les commandes Linux et la sécurité de base.
 
 Seulement si le wargame bandit est au niveau 5 minimum :
@@ -27,29 +26,25 @@ niveau 5 => 6 : 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
 
 niveau 6 => 7 : HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 > Utilisation avancée de la commande find.
-=======
 
-Seulement si le wargame bandit est au niveau 5 minimum :
-niveau 0 : ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
- $ ssh bandit.labs.overthewire.org -p(port) 2220 -l(user-login) bandit2
->>>>>>> 453205a (doc(Jour-03.md): checklist)
+niveau 1 => 2  : 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+> Apprentissage de la lecture de fichiers avec des noms spéciaux.
 
-niveau 1 : 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+niveau 0 => 3  : MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+> Utilisation des caractères d'échappement pour les espaces.
 
-niveau 2 : MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
-utilisé \ pour utilisé la commande quand y'a un espace
+niveau 0 => 4 : 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+> Découverte des fichiers cachés avec ls -al.
 
-niveau 3 : 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
-utilisé ls -al pour voir les fichiers/dossiers cachée
+niveau 0 => 5 : 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+> Utilisation de la commande file pour identifier le type de fichier.
 
-niveau 4 : 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
-utilisé file pour voir le type du fichier
+niveau 0 => 6  : 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+> Recherche de fichiers avec des critères spécifiques.
 
-niveau 5 : 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
-find inhere(ou chercher) -size 1033c (taille qu'on recherche 'c' signifie que c'est en bytes/octets) -not(not signifie qu'on chercher l'inverse de la prochaine option) -excutable (donc qui n'est pas excutable)
+niveau 0 => 1 : HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+> Utilisation avancée de la commande find.
 
-
-niveau 6: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 #### Git
 
 - [x] Création de compte + configuration Github
