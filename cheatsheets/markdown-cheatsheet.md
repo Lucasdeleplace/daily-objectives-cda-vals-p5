@@ -192,6 +192,11 @@ Appuyez sur <kbd>Ctrl</kbd> + <kbd>C</kbd> pour copier
 Contenu caché qui apparaît lors du clic !
 </details>
 ```
+<details>
+<summary>Cliquez pour voir plus</summary>
+
+Contenu caché qui apparaît lors du clic !
+</details>
 
 ### Coloration syntaxique avec indication de lignes
 ````markdown
