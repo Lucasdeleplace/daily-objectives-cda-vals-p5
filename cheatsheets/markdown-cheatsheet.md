@@ -182,6 +182,8 @@ graph TD;
 Appuyez sur <kbd>Ctrl</kbd> + <kbd>C</kbd> pour copier
 ```
 
+Appuyez sur <kbd>Ctrl</kbd> + <kbd>C</kbd> pour copier
+
 ### Détails dépliables (supporté par GitHub)
 ```markdown
 <details>
