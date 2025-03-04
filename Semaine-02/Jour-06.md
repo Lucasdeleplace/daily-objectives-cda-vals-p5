@@ -188,7 +188,7 @@ git config --global fetch.prune true
 
 ### Git avancé
 
-- [ ] Comprendre l'utilité et savoir utiliser `git cherry-pick`
+- [x] Comprendre l'utilité et savoir utiliser `git cherry-pick`
 > Cherry-pick permet de prendre un commit spécifique et de l'appliquer sur la branche actuelle.
 ```bash
 # Appliquer un commit spécifique
