@@ -103,7 +103,7 @@ git stash drop stash@{2}
 git stash push --include-untracked/-u
 ```
 
-- [ ] Comprendre et utiliser le `git diff` (quelle utilité)
+- [x] Comprendre et utiliser le `git diff` (quelle utilité)
 > Diff permet de voir les différences entre différents états.
 ```bash
 # Différences dans le working directory
