@@ -201,13 +201,14 @@ git cherry-pick abc123..def456
 git cherry-pick -n abc123
 ```
 
-- [ ] Comprendre l'utilité et savoir utiliser `git bisect`
-> Bisect aide à trouver le commit qui a introduit un bug par recherche binaire ? (incertain)
+- [x] Comprendre l'utilité et savoir utiliser `git bisect`
+> Bisect aide à trouver le commit qui a introduit un bug par recherche binaire en permettant de tester la fonctionnalité sur les commits un par un.
 ```bash
 # Démarrer la recherche
 git bisect start
 git bisect bad    # Version actuelle avec le bug
 git bisect good v1.0  # Dernière version connue sans le bug
+git bisect start V1.0 # Démarrer la recherche à partir d'une version spécifique en une seule commande
 
 # Git fait une recherche binaire
 # Pour chaque commit, tester et marquer
