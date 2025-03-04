@@ -31,6 +31,7 @@ git log --graph --oneline
 
 - [ ] Comprendre le rebase dans Git (quelle différence avec le merge ?)
 > Le rebase réécrit l'historique en déplaçant une série de commits vers une nouvelle base.
+> la différence entre rebase et merge est que rebase réécrit l'historique, alors que merge crée un nouveau commit de merge.
 ```bash
 # Rebase basique
 git checkout feature
