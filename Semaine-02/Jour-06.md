@@ -146,7 +146,7 @@ git fetch origin feature
 git log HEAD..origin/main
 ```
 
-- [ ] `.gitignore` global ou pas ?
+- [x] `.gitignore` global ou pas ?
 > Le .gitignore peut être global ou local
 ```bash
 # .gitignore global
