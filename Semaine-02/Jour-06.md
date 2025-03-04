@@ -159,7 +159,7 @@ node_modules/
 .DS_Store
 ```
 
-- [ ] Comprendre quelle est la différence entre `git pull` et `git fetch`
+- [x] Comprendre quelle est la différence entre `git pull` et `git fetch`
 > Pull = fetch + merge, fetch récupère sans fusionner.
 ```bash
 # Fetch seul
@@ -202,7 +202,7 @@ git cherry-pick -n abc123
 ```
 
 - [ ] Comprendre l'utilité et savoir utiliser `git bisect`
-> Bisect aide à trouver le commit qui a introduit un bug par recherche binaire.
+> Bisect aide à trouver le commit qui a introduit un bug par recherche binaire ? (incertain)
 ```bash
 # Démarrer la recherche
 git bisect start
