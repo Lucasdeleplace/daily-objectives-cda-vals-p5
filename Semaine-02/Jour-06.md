@@ -4,8 +4,12 @@
 
 ### Git fondamentaux avancés
 
-- [ ] Comprendre le fonctionnement des références et pointeurs dans Git
+- [x] Comprendre le fonctionnement des références et pointeurs dans Git
 > Les références dans Git sont des pointeurs vers des commits spécifiques. HEAD, branches et tags sont des exemples de références.
+> Les références sont stockées dans le .git/refs/
+> HEAD est un pointeur vers le commit actuel.
+> Branches sont des pointeurs vers des commits.
+> Tags sont des pointeurs vers des commits.
 ```bash
 # Voir où pointe HEAD
 cat .git/HEAD
@@ -17,8 +21,9 @@ ls -la .git/refs/heads/
 git rev-parse main
 ```
 
-- [ ] Comprendre le merge dans Git (approfondissement)
+- [x] Comprendre le merge dans Git (approfondissement)
 > Le merge combine les modifications de différentes branches.
+
 ```bash
 # Merge classique
 git checkout main
@@ -29,7 +34,7 @@ git merge --no-ff feature
 git log --graph --oneline
 ```
 
-- [ ] Comprendre le rebase dans Git (quelle différence avec le merge ?)
+- [x] Comprendre le rebase dans Git (quelle différence avec le merge ?)
 > Le rebase réécrit l'historique en déplaçant une série de commits vers une nouvelle base.
 > la différence entre rebase et merge est que rebase réécrit l'historique, alors que merge crée un nouveau commit de merge.
 ```bash
@@ -41,7 +46,7 @@ git rebase main
 git rebase -i HEAD~3
 ```
 
-- [ ] Comprendre la différence entre `git reset` et `git revert`
+- [x] Comprendre la différence entre `git reset` et `git revert`
 > Reset modifie l'historique, revert crée un nouveau commit d'annulation.
 ```bash
 # Reset : supprime les commits (dangereux sur branches partagées)
@@ -67,6 +72,11 @@ git reset --hard HEAD@{2}  # Revenir 2 actions en arrière
 
 - [ ] Comprendre l'utilité et le fonctionnement de `git stash`
 > Stash permet de mettre de côté des modifications temporairement.
+Ou sont mis les stash ? dans le .git/refs/stash
+```bash
+# Voir les stash
+ls -la .git/refs/stash
+```
 ```bash
 # Stocker les modifications
 git stash push -m "Modifications en cours sur la feature login"
@@ -127,8 +137,7 @@ git log HEAD..origin/main
 ```
 
 - [ ] `.gitignore` global ou pas ?
-> Le .gitignore peut être global ou local selon les besoins.
-> En général, on utilise un .gitignore global pour ne pas avoir à le configurer pour chaque projet.
+> Le .gitignore peut être global ou local
 ```bash
 # .gitignore global
 git config --global core.excludesfile ~/.gitignore_global
