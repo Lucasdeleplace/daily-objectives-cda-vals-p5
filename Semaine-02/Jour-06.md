@@ -133,7 +133,7 @@ git show abc123      # Commit spécifique
 git show HEAD~3      # 3ème commit avant HEAD
 ```
 
-- [ ] Comprendre et utiliser le `git fetch`
+- [x] Comprendre et utiliser le `git fetch`
 > Fetch récupère les modifications du remote sans les fusionner.
 ```bash
 # Récupérer toutes les branches
