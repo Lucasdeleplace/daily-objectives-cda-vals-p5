@@ -58,7 +58,7 @@ git revert HEAD         # Annule le dernier commit
 git revert abc123..def456  # Annule une série de commits
 ```
 
-- [ ] Savoir annuler des `commits` et/ou `merge commits`
+- [x] Savoir annuler des `commits` et/ou `merge commits`
 > Plusieurs façons d'annuler des modifications selon le contexte.
 ```bash
 # Annuler un merge commit
@@ -167,7 +167,7 @@ git pull --rebase origin main
 ### Git avancé
 
 - [ ] Comprendre l'utilité et savoir utiliser `git cherry-pick`
-> Cherry-pick permet de prendre un commit spécifique et de l'appliquer ailleurs.
+> Cherry-pick permet de prendre un commit spécifique et de l'appliquer sur la branche actuelle.
 ```bash
 # Appliquer un commit spécifique
 git cherry-pick abc123
