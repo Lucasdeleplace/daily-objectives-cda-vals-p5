@@ -58,7 +58,7 @@ git revert HEAD         # Annule le dernier commit
 git revert abc123..def456  # Annule une série de commits
 ```
 
-- [x] Savoir annuler des `commits` et/ou `merge commits`
+- [x] Savoir annuler des `commits` et/ou `merge commits` (déplacer le HEAD, https://ohshitgit.com/)
 > Plusieurs façons d'annuler des modifications selon le contexte.
 ```bash
 # Annuler un merge commit
@@ -70,7 +70,7 @@ git reflog               # Voir l'historique des actions
 git reset --hard HEAD@{2}  # Revenir 2 actions en arrière
 ```
 
-- [ ] Comprendre l'utilité et le fonctionnement de `git stash`
+- [x] Comprendre l'utilité et le fonctionnement de `git stash`
 > Stash permet de mettre de côté des modifications temporairement.
 Ou sont mis les stash ? dans le .git/refs/stash
 ```bash
@@ -88,13 +88,22 @@ git stash list
 git stash pop   # Applique et supprime le dernier stash
 git stash apply # Applique sans supprimer
 
+# Pour prendre la dernière entrée (stash@{0})
+git stash show
+# ou pour cibler une version précise
+git stash show stash@{<version-ciblée>}
+
 # Gérer plusieurs stash
 git stash save "message"
 git stash apply stash@{2}
 git stash drop stash@{2}
+
+# Attention quand un fichier/dossier est untacked, il ne sera pas pris en compte dans le stash.
+# Pour forcer a pouvoir inclure un fichier untacked, il faut utiliser --include-untracked ou -u
+git stash push --include-untracked/-u
 ```
 
-- [ ] Comprendre et utiliser le `git diff`
+- [ ] Comprendre et utiliser le `git diff` (quelle utilité)
 > Diff permet de voir les différences entre différents états.
 ```bash
 # Différences dans le working directory
