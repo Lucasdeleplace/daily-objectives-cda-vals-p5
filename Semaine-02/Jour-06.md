@@ -119,8 +119,8 @@ git diff main..feature
 git diff HEAD -- path/to/file
 ```
 
-- [ ] Comprendre la différence entre `git log` et `git show`
-> Log montre l'historique, show montre les détails d'un commit.
+- [x] Comprendre la différence entre `git log` et `git show`
+> Log montre l'historique, show montre les détails d'un commit par defaut HEAD.
 ```bash
 # Log avec différents formats
 git log --oneline
