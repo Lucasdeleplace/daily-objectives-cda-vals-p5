@@ -123,8 +123,9 @@ git diff HEAD -- path/to/file
 > Log montre l'historique, show montre les détails d'un commit par defaut HEAD.
 ```bash
 # Log avec différents formats
-git log --oneline
-git log --graph 
+git log # format détaillé
+git log --oneline # format compact
+git log --graph   # format graphique
 
 # Show pour voir les détails
 git show HEAD        # Dernier commit
@@ -171,6 +172,18 @@ git pull origin main
 
 # Pull avec rebase au lieu de merge
 git pull --rebase origin main
+```
+
+- [x] À quoi sert la commande git fetch —prune
+> Fetch —prune récupère les branches distantes et les supprime si elles ne sont plus présentes.
+```bash
+git fetch --prune
+```
+
+- [x] Comment configurer mon git pour que ce soit fait automatiquement ?
+> On peut configurer git pour que fetch —prune soit fait automatiquement avec la commande :
+```bash
+git config --global fetch.prune true
 ```
 
 ### Git avancé
