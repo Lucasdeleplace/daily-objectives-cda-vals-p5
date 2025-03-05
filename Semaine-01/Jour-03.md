@@ -27,24 +27,6 @@ niveau 5 => 6 : 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
 niveau 6 => 7 : HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 > Utilisation avancée de la commande find.
 
-niveau 1 => 2  : 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
-> Apprentissage de la lecture de fichiers avec des noms spéciaux.
-
-niveau 2 => 3 : MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
-> Utilisation des caractères d'échappement pour les espaces.
-
-niveau 3 => 4 : 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
-> Découverte des fichiers cachés avec ls -al.
-
-niveau 4 => 5 : 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
-> Utilisation de la commande file pour identifier le type de fichier.
-
-niveau 5 => 6 : 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
-> Recherche de fichiers avec des critères spécifiques.
-
-niveau 6 => 7 : HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
-> Utilisation avancée de la commande find.
-
 #### Git
 
 - [x] Création de compte + configuration Github
