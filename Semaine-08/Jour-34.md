@@ -2,7 +2,7 @@
 
 ## Objectifs du jour
 
-### Préparation du Dossier Professionnel (DP)
+### Préparation du Dossier Projet (DP)
 
 - [ ] Initialisation du repository selon les exigences du titre
   - [ ] Création d'un README.md professionnel détaillant :
