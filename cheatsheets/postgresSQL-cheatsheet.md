@@ -1,4 +1,6 @@
--- GESTION DU SERVICE POSTGRESQL
+===========================================
+=== GESTION DU SERVICE POSTGRESQL ===
+===========================================
 # Démarrer le service
 sudo systemctl start postgresql
 
@@ -17,7 +19,9 @@ sudo systemctl enable postgresql
 # Désactiver le démarrage automatique
 sudo systemctl disable postgresql
 
--- GESTION DES UTILISATEURS ET ROLES
+===========================================
+=== GESTION DES UTILISATEURS ET ROLES ===
+===========================================
 # Se connecter en tant que postgres (super-utilisateur)
 sudo -u postgres psql
 
@@ -33,7 +37,9 @@ ALTER USER mon_user CREATEDB;
 # Changer le mot de passe d'un utilisateur
 ALTER USER mon_user WITH PASSWORD 'nouveau_password';
 
--- GESTION DES BASES DE DONNÉES
+=========================================
+=== GESTION DES BASES DE DONNÉES ===
+=========================================
 # Créer une base de données
 CREATE DATABASE ma_base;
 # ou via createdb
@@ -49,7 +55,9 @@ psql -U mon_user -d ma_base
 # ou avec pgcli
 pgcli -U mon_user -d ma_base
 
--- COMMANDES PSQL UTILES
+================================
+=== COMMANDES PSQL UTILES ===
+================================
 \l          -- Liste toutes les bases de données
 \c ma_base  -- Se connecter à une base de données
 \dt         -- Liste toutes les tables
@@ -62,76 +70,103 @@ pgcli -U mon_user -d ma_base
 \x          -- Basculer l'affichage étendu
 \timing     -- Activer/désactiver le chronométrage des requêtes
 
--- GESTION DES FICHIERS DE CONFIGURATION
-# Localisation des fichiers de configuration
-/etc/postgresql/14/main/postgresql.conf  -- Configuration principale
-/etc/postgresql/14/main/pg_hba.conf     -- Configuration authentification
+============================================
+=== SAUVEGARDE ET RESTAURATION AVANCÉE ===
+============================================
+# Formats de sauvegarde disponibles
+pg_dump -Fp  # Format texte (défaut)
+pg_dump -Fc  # Format personnalisé (compressé)
+pg_dump -Fd  # Format directory
+pg_dump -Ft  # Format tar
 
-# Recharger la configuration sans redémarrer
-sudo pg_ctl reload
+# Sauvegardes complètes
+pg_dump -U mon_user ma_base > sauvegarde.sql                    # Sauvegarde basique
+pg_dump -U mon_user -Fc ma_base > sauvegarde.dump              # Format compressé
+pg_dumpall -U mon_user > toutes_les_bases.sql                  # Toutes les bases
+pg_dump -U mon_user --schema-only ma_base > structure.sql      # Structure seule
+pg_dump -U mon_user --data-only ma_base > donnees.sql          # Données seules
 
--- SAUVEGARDE ET RESTAURATION
-# Sauvegarder une base de données
-pg_dump -U mon_user ma_base > backup.sql
+# Sauvegardes partielles
+pg_dump -U mon_user -t ma_table ma_base > table.sql            # Une table
+pg_dump -U mon_user -n mon_schema ma_base > schema.sql         # Un schéma
+pg_dump -U mon_user --exclude-table=table_excluse ma_base      # Exclure une table
 
-# Sauvegarder toutes les bases de données
-pg_dumpall -U mon_user > backup_complet.sql
+# Restauration
+psql -U mon_user -d ma_base < sauvegarde.sql                   # Restaurer format texte
+pg_restore -U mon_user -d ma_base sauvegarde.dump              # Restaurer format compressé
+pg_restore -U mon_user -t ma_table -d ma_base sauvegarde.dump  # Restaurer une table
 
-# Restaurer une base de données
-psql -U mon_user ma_base < backup.sql
+==============================================
+=== GESTION AVANCÉE DES UTILISATEURS (DCL) ===
+==============================================
+# Création d'utilisateurs avec options
+CREATE USER app_user 
+    WITH PASSWORD 'password'
+    CREATEDB 
+    NOCREATEROLE 
+    CONNECTION LIMIT 10
+    VALID UNTIL '2024-12-31';
 
--- MAINTENANCE
-# Analyser une base de données
-ANALYZE ma_table;
+# Modification d'utilisateurs
+ALTER USER mon_user WITH CREATEDB;                  # Ajouter droit CREATEDB
+ALTER USER mon_user WITH NOCREATEDB;               # Retirer droit CREATEDB
+ALTER USER mon_user VALID UNTIL '2024-12-31';      # Définir expiration
+ALTER USER mon_user CONNECTION LIMIT 5;            # Limiter connexions
 
-# Vider le cache
-DISCARD ALL;
+# Suppression sécurisée
+REASSIGN OWNED BY ancien_user TO nouveau_user;     # Réassigner objets
+DROP OWNED BY ancien_user;                         # Supprimer objets
+DROP USER IF EXISTS ancien_user;                   # Supprimer utilisateur
 
-# Vacuum (nettoyage et optimisation)
-VACUUM;
-VACUUM ANALYZE;
-VACUUM FULL;
+================================
+=== GESTION DES DROITS ===
+================================
+# Droits sur les bases de données
+GRANT CONNECT ON DATABASE ma_base TO mon_user;
+GRANT CREATE ON DATABASE ma_base TO mon_user;
+GRANT TEMPORARY ON DATABASE ma_base TO mon_user;
 
--- SURVEILLANCE ET DIAGNOSTIC
-# Voir les connexions actives
-SELECT * FROM pg_stat_activity;
+# Droits sur les schémas
+GRANT USAGE ON SCHEMA mon_schema TO mon_user;
+GRANT CREATE ON SCHEMA mon_schema TO mon_user;
 
-# Tuer une connexion
-SELECT pg_terminate_backend(pid);
+# Droits sur les tables
+GRANT SELECT ON ma_table TO mon_user;                          # Lecture seule
+GRANT SELECT, INSERT, UPDATE, DELETE ON ma_table TO mon_user;  # CRUD complet
+GRANT ALL PRIVILEGES ON ma_table TO mon_user;                  # Tous les droits
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO mon_user;  # Sur toutes les tables
 
-# Voir la taille des bases de données
-SELECT pg_size_pretty(pg_database_size('ma_base'));
+# Révocation des droits
+REVOKE ALL PRIVILEGES ON ma_table FROM mon_user;
+REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM mon_user;
 
-# Voir la taille des tables
-SELECT pg_size_pretty(pg_total_relation_size('ma_table'));
+=====================================
+=== BONNES PRATIQUES DE SÉCURITÉ ===
+=====================================
+# Création d'un groupe et utilisateurs applicatifs
+CREATE ROLE app_group;
+CREATE USER app_reader WITH PASSWORD 'xxx' IN ROLE app_group;
+CREATE USER app_writer WITH PASSWORD 'xxx' IN ROLE app_group;
 
--- VARIABLES D'ENVIRONNEMENT UTILES
+# Configuration des droits minimaux
+GRANT CONNECT ON DATABASE app_db TO app_group;
+GRANT USAGE ON SCHEMA public TO app_group;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO app_reader;
+GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO app_writer;
+
+# Audit des droits
+\dp ma_table                     # Voir les droits sur une table
+\du+                            # Liste détaillée des rôles
+SELECT * FROM pg_roles;         # Voir tous les rôles
+SELECT * FROM pg_user;          # Voir tous les utilisateurs
+
+
+================================
+=== VARIABLES D'ENVIRONNEMENT ===
+================================
 export PGUSER=mon_user
 export PGPASSWORD=mon_password
 export PGDATABASE=ma_base
 export PGHOST=localhost
 export PGPORT=5432
 
--- GESTION DES DROITS
-# Donner tous les droits sur une table
-GRANT ALL PRIVILEGES ON ma_table TO mon_user;
-
-# Donner des droits spécifiques
-GRANT SELECT, INSERT, UPDATE ON ma_table TO mon_user;
-
-# Révoquer des droits
-REVOKE ALL PRIVILEGES ON ma_table FROM mon_user;
-
--- GESTION DES SCHÉMAS
-# Créer un schéma
-CREATE SCHEMA mon_schema;
-
-# Définir le schéma par défaut
-SET search_path TO mon_schema, public;
-
--- EXTENSIONS
-# Lister les extensions disponibles
-SELECT * FROM pg_available_extensions;
-
-# Installer une extension
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
