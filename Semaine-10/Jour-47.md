@@ -89,7 +89,6 @@
   import java.util.Scanner;
 
   public class Calculatrice {
-      // Classe interne pour les opérations
       private class Operations {
           double addition(double a, double b) {
               return a + b;
@@ -111,17 +110,14 @@
           }
       }
 
-      // Variables de la classe principale
       private Scanner scanner;
       private Operations operations;
 
-      // Constructeur
       public Calculatrice() {
           this.scanner = new Scanner(System.in);
           this.operations = new Operations();
       }
 
-      // Méthode pour afficher le menu
       private void afficherMenu() {
           System.out.println("\n=== Calculatrice ===");
           System.out.println("1. Addition (+)");
@@ -132,7 +128,6 @@
           System.out.print("Choisissez une opération (1-5) : ");
       }
 
-      // Méthode principale qui fait tourner la calculatrice
       public void demarrer() {
           boolean continuer = true;
 
@@ -180,14 +175,13 @@
                   System.out.println("Erreur : " + e.getMessage());
               } catch (Exception e) {
                   System.out.println("Erreur : Entrée invalide");
-                  scanner.nextLine(); // Pour vider le buffer
+                  scanner.nextLine();
               }
           }
 
           scanner.close();
       }
 
-      // Méthode main pour lancer le programme
       public static void main(String[] args) {
           Calculatrice calculatrice = new Calculatrice();
           calculatrice.demarrer();
