@@ -43,10 +43,10 @@
   - [x] Lire un message de compilation
   - [x] Stratégies de débogage de base
 
-- [ ] Pour aller plus loin (optionnel)
-  - [ ] Comprendre l'utilisation de Maven
-  - [ ] Installer et configurer Maven sur son environnement
-  - [ ] Savoir lire un fichier pom.xml
+- [x] Pour aller plus loin (optionnel)
+  - [x] Comprendre l'utilisation de Maven
+  - [x] Installer et configurer Maven sur son environnement
+  - [x] Savoir lire un fichier pom.xml
   - [ ] Créer un 1er projet Web à l'aide de SpringBoot
 
 - [x] Exercices pratiques
@@ -69,7 +69,7 @@
           System.out.println("Entrer un nombre entre 1 et 50");
 
           int nombredonner = scanner.nextInt();
-          int nombreEssai = 0;
+          int nombreEssai = 1;
           while (nombreAleatoire != nombredonner) {
               if (nombredonner > nombreAleatoire) {
                   System.out.println(nombredonner + " et plus petit");
