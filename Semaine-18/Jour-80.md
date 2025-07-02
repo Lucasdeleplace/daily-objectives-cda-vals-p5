@@ -3,12 +3,12 @@
 ## Mardi 24/06/2025 :
 
 ### Les Tests Unitaires (TU)
-- [ ] Comprendre l'objectif des tests unitaires : tester la plus petite partie de code (une fonction, une méthode) de manière isolée.
-- [ ] Savoir comment "mocker" (simuler) les dépendances externes (BDD, API, etc.) pour garantir l'isolation.
-- [ ] Écrire des assertions pertinentes pour valider le comportement attendu.
+- [X] Comprendre l'objectif des tests unitaires : tester la plus petite partie de code (une fonction, une méthode) de manière isolée.
+- [X] Savoir comment "mocker" (simuler) les dépendances externes (BDD, API, etc.) pour garantir l'isolation.
+- [X] Écrire des assertions pertinentes pour valider le comportement attendu.
 
 ### Mise en pratique par technologie
-- [ ] **Pour tous :** Écrire des tests unitaires pour une fonction pure (ex: une fonction de calcul simple).
+- [X] **Pour tous :** Écrire des tests unitaires pour une fonction pure (ex: une fonction de calcul simple).
 
 - [ ] **Java (avec JUnit) :**
   - [ ] Configurer JUnit dans un projet Maven ou Gradle.
@@ -28,8 +28,8 @@
   - [ ] Créer des mocks avec `createMock()` ou Prophecy.
   - [ ] Écrire des assertions (ex: `assertEquals`, `assertTrue`).
 
-- [ ] **TypeScript (avec Jest ou Vitest) :**
-  - [ ] Configurer Jest ou Vitest dans un projet Node.js/frontend.
-  - [ ] Utiliser les fonctions `describe`, `it` (ou `test`).
-  - [ ] Simuler des modules ou des fonctions avec `jest.mock()` ou `vi.mock()`.
-  - [ ] Écrire des assertions avec `expect()`. 
+- [x] **TypeScript (avec Jest ou Vitest) :**
+  - [x] Configurer Jest ou Vitest dans un projet Node.js/frontend.
+  - [x] Utiliser les fonctions `describe`, `it` (ou `test`).
+  - [x] Simuler des modules ou des fonctions avec `jest.mock()` ou `vi.mock()`.
+  - [x] Écrire des assertions avec `expect()`. 
